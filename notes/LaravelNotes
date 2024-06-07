@@ -1,0 +1,10 @@
+In Laravel there are some folders which I
+expain them one by one.
+
+1. app:
+    The mejority your application's logic will be there.
+Inside app folder:
+    In exception folder we define PHP exception.
+2. Public:
+    Everything which, is accessable in are in public folder. like images, html and the index page.
+3. Routh folder: This is where we put all paths of the website.
