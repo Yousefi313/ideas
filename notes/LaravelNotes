@@ -8,3 +8,18 @@ Inside app folder:
 2. Public:
     Everything which, is accessable in are in public folder. like images, html and the index page.
 3. Routh folder: This is where we put all paths of the website.
+
+4. In order to run the Laravel Project just type 'php artisan serve' in the terminal.
+
+
+MVC stands for Model, View and Controller.
+
+1. Model: Handle data logic und intraction with databse.
+
+2. View: What should be shown to the user (HTML and CSS code/ Blade file).
+
+3. Controller: Handle requests
+
+'php artisan make:controller DashboardController'
+Instead of creating a Controller manually, you can use artisan, which is a tool
+to make it happen.
