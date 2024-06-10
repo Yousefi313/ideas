@@ -1,0 +1,48 @@
+Example:
+{{-- Printing the array values using Laravel Templeate --}}
+@foreach ($users as $user)
+    <h2>{{ $user['name']}}</h2>
+    <h3>{{ $user['age']}}</h3>
+    @if ($user['age'] < 18)
+        <p>You're not allowed to drive.</p>
+    @endif
+    <hr>
+@endforeach
+
+@copyright {{ date('Y')}}
+{{-- <footer>
+    &copy; {{ date('Y') }} Yousefian Holding
+</footer> --}}
+{{-- The below code is PHP standard. The better way is using Laravel Template --}}
+{{-- <?php
+foreach ($users as $user) {
+    echo 'Name: ' . $user['name'] . ', Age: ' . $user['age'] . '<br>';
+}
+?> --}}
+
+
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <table style="width:100%">
+        <tr>
+          <td>Name</td>
+          <td>Age</td>
+        </tr>
+        @foreach ($users as $user)
+        <tr>
+          <td>{{ $user['name'] }}</td>
+          <td>{{ $user['age'] }}</td>
+        </tr>
+        @endforeach
+      </table>
+
+</body>
+</html> --}}

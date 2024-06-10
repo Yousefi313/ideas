@@ -23,3 +23,42 @@ MVC stands for Model, View and Controller.
 'php artisan make:controller DashboardController'
 Instead of creating a Controller manually, you can use artisan, which is a tool
 to make it happen.
+
+
+4. There is an HTML structure which I'd like to reuese it in some pages too.
+    But writing it in every page is just boiler plate code.
+    There is an option defing the @yield('content') in the  content section, which is visible on Internet.away
+    You should create a blade file in a folder to reuse it anytime.
+        E.g.
+            <div class="container py-4">
+            {{-- Page contens is in this section --}}
+            @yield('content')
+            </div>
+
+        I created a page called Terms. Instead of writing all the code inside it, I used the yield function.
+            E.g.
+                @extends('layout.layout')  //extend function
+                @section('content')  //name of the yield
+                <h1>Terms</h1>
+                <div>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                </div>
+                @endsection
+                In order to put the Terms to be in the container py-4, then define it inside the content section.
+
+5. What is @Include(''):
+    As an example I to make my code more readable and concise, I crated a file inside the layout folder and then
+    I cut the nave section and paste it in nav.blade.php.
+    In order to use it in your codes, you have to mention it in @Include('layout.nav'). Laravel adds it to your code
+    automatically.
+
+6. In order to chage the name of the application eather you can type it manueally or go the .env file and change the APP_NAME.
+    In config folder there is a file called app.php. There is env function which reads the app name of Laravel.
+        E.g.
+            'name' => env('APP_NAME', 'Laravel'),
+
+7. Instead of typing the name of the application in <title>Twitter Clone Bootstrap 5 Example</title> you can do it dynamically.
+        E.g.
+            <title>{{ config('app.name')}}</title>
+            In the config folder there is a file named app and inside app there is a method named name.
+                'name' => env('APP_NAME', 'Laravel'),

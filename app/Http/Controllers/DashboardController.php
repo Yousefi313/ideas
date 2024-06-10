@@ -16,6 +16,14 @@ class DashboardController extends Controller{
             [
                 'name' => 'Jane',
                 'age' => 34,
+            ],
+            [
+                'name' => 'Alex',
+                'age' => 17,
+            ],
+            [
+                'name' => 'David',
+                'age' => 14,
             ]
         ];
 
