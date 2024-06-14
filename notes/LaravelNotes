@@ -62,3 +62,10 @@ to make it happen.
             <title>{{ config('app.name')}}</title>
             In the config folder there is a file named app and inside app there is a method named name.
                 'name' => env('APP_NAME', 'Laravel'),
+
+8. How to create Migration using artisan:
+    php artisan make:migration create_ideas_table
+        The underline is the naming convintion.
+
+
+        I should start from #9
