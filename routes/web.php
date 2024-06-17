@@ -2,18 +2,19 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index']);
 //When such a request is made, Laravel will instantiate the DashboardController class and call its index method.
 
 
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index']); //Controller Route
 
-Route::get('/terms', function(){
+Route::get('/terms', function(){ //Direct Closure Route
     return view('terms');
 });
-
+Route::get('/register',[RegisterController::class, 'index']);
 
 // Route::get('/', function () {
 //     return view('welcome');

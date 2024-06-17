@@ -68,4 +68,21 @@ to make it happen.
         The underline is the naming convintion.
 
 
-        I should start from #9
+9. There are two kind of Routes in Laravel:
+
+    a. Direct Closure Route:
+        Direct Closure Route (Route::get('/terms', function () { return view('terms'); });):
+        Best for simple, static routes with minimal logic.
+
+    b. Controller Route:
+        Controller Route (Route::get('/profile', [ProfileController::class, 'index']);):
+        Best for complex logic, reusability, and maintaining clean separation of concerns.
+
+
+10. In order to create table in Database, you can use the following command.
+        php artisan:make migration create_ideas_table
+
+        And then you can edit the migration by adding more coloumns.
+
+        And then type in the terminal the following command.away
+            php artisan:migrate
