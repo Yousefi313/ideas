@@ -1,0 +1,5 @@
+Cloning a Laravel project from a Git works if you
+install composer and then make a .env file(copy everything from .env.example and paste it to
+the .env).
+Then type php artisan key:generate
+to get a new key in the .env file.
