@@ -2,11 +2,11 @@ In Laravel there are some folders which I
 expain them one by one.
 
 1. app:
-    The mejority your application's logic will be there.
+The mejority your application's logic will be there.
 Inside app folder:
-    In exception folder we define PHP exception.
+In exception folder we define PHP exception.
 2. Public:
-    Everything which, is accessable in are in public folder. like images, html and the index page.
+Everything which, is accessable in are in public folder. like images, html and the index page.
 3. Routh folder: This is where we put all paths of the website.
 
 4. In order to run the Laravel Project just type 'php artisan serve' in the terminal.
@@ -26,63 +26,74 @@ to make it happen.
 
 
 4. There is an HTML structure which I'd like to reuese it in some pages too.
-    But writing it in every page is just boiler plate code.
-    There is an option defing the @yield('content') in the  content section, which is visible on Internet.away
-    You should create a blade file in a folder to reuse it anytime.
-        E.g.
-            <div class="container py-4">
-            {{-- Page contens is in this section --}}
-            @yield('content')
-            </div>
+But writing it in every page is just boiler plate code.
+There is an option defing the @yield('content') in the content section, which is visible on Internet.away
+You should create a blade file in a folder to reuse it anytime.
+E.g.
+<div class="container py-4">
+    {{-- Page contens is in this section --}}
+    @yield('content')
+</div>
 
-        I created a page called Terms. Instead of writing all the code inside it, I used the yield function.
-            E.g.
-                @extends('layout.layout')  //extend function
-                @section('content')  //name of the yield
-                <h1>Terms</h1>
-                <div>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                </div>
-                @endsection
-                In order to put the Terms to be in the container py-4, then define it inside the content section.
+I created a page called Terms. Instead of writing all the code inside it, I used the yield function.
+E.g.
+@extends('layout.layout') //extend function
+@section('content') //name of the yield
+<h1>Terms</h1>
+<div>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+</div>
+@endsection
+In order to put the Terms to be in the container py-4, then define it inside the content section.
 
 5. What is @Include(''):
-    As an example I to make my code more readable and concise, I crated a file inside the layout folder and then
-    I cut the nave section and paste it in nav.blade.php.
-    In order to use it in your codes, you have to mention it in @Include('layout.nav'). Laravel adds it to your code
-    automatically.
+As an example I to make my code more readable and concise, I crated a file inside the layout folder and then
+I cut the nave section and paste it in nav.blade.php.
+In order to use it in your codes, you have to mention it in @Include('layout.nav'). Laravel adds it to your code
+automatically.
 
 6. In order to chage the name of the application eather you can type it manueally or go the .env file and change the APP_NAME.
-    In config folder there is a file called app.php. There is env function which reads the app name of Laravel.
-        E.g.
-            'name' => env('APP_NAME', 'Laravel'),
+In config folder there is a file called app.php. There is env function which reads the app name of Laravel.
+E.g.
+'name' => env('APP_NAME', 'Laravel'),
 
 7. Instead of typing the name of the application in <title>Twitter Clone Bootstrap 5 Example</title> you can do it dynamically.
-        E.g.
-            <title>{{ config('app.name')}}</title>
-            In the config folder there is a file named app and inside app there is a method named name.
-                'name' => env('APP_NAME', 'Laravel'),
+E.g.
+<title>{{ config('app.name')}}</title>
+In the config folder there is a file named app and inside app there is a method named name.
+'name' => env('APP_NAME', 'Laravel'),
 
 8. How to create Migration using artisan:
-    php artisan make:migration create_ideas_table
-        The underline is the naming convintion.
+php artisan make:migration create_ideas_table
+The underline is the naming convintion.
 
 
 9. There are two kind of Routes in Laravel:
 
-    a. Direct Closure Route:
-        Direct Closure Route (Route::get('/terms', function () { return view('terms'); });):
-        Best for simple, static routes with minimal logic.
+a. Direct Closure Route:
+Direct Closure Route (Route::get('/terms', function () { return view('terms'); });):
+Best for simple, static routes with minimal logic.
 
-    b. Controller Route:
-        Controller Route (Route::get('/profile', [ProfileController::class, 'index']);):
-        Best for complex logic, reusability, and maintaining clean separation of concerns.
+b. Controller Route:
+Controller Route (Route::get('/profile', [ProfileController::class, 'index']);):
+Best for complex logic, reusability, and maintaining clean separation of concerns.
 
 
 10. In order to create table in Database, you can use the following command.
-        php artisan:make migration create_ideas_table
+php artisan:make migration create_ideas_table
 
-        And then you can edit the migration by adding more coloumns.
+And then you can edit the migration by adding more coloumns.
 
-        And then type in the terminal the following command.away
-            php artisan:migrate
+And then type in the terminal the following command.away
+php artisan:migrate
+
+
+11. Route::post('/idea', [DashboardController::class, 'index']);
+The above line of code is a route, there is an option of naming you route too.
+
+Route::post('/idea', [DashboardController::class, 'index'])->name('idea.create');
+The name of above route is idea.create
+
+
+
+I should start from #11 Flash Messages.
