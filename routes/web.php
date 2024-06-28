@@ -8,15 +8,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 //When such a request is made, Laravel will instantiate the DashboardController class and call its index method.
+Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
 
-// Route::post('/idea', [DashboardController::class, 'index']);
-Route::post('/idea', [IdeaController::class, 'store'])->name('idea.create');
+Route::delete('/ideas/{id}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
 
-Route::get('/profile', [ProfileController::class, 'index']); //Controller Route
+
+
 
 Route::get('/terms', function () { //Direct Closure Route
     return view('terms');
 });
+
+
+// Route::post('/idea', [DashboardController::class, 'index']);
+
+Route::get('/profile', [ProfileController::class, 'index']); //Controller Route
+
+
 Route::get('/register', [RegisterController::class, 'index']);
 
 

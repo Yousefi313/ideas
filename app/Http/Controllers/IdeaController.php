@@ -27,4 +27,17 @@ class IdeaController extends Controller
 
         return redirect()->route('dashboard')->with('Success','Idea created successfully!');
     }
+
+    public function destroy($id){
+
+        Idea::where('id',$id)->firstOrFail()->delete();
+
+        // The above code is the same but more clean and concise
+        //by default where methode compares the two ids by equal
+        // $idea = Idea::where('id',$id)->firstOrFail(); //It deletes the item and if the item doesn't exist the error 404 appears
+
+        // $idea->delete();
+
+        return redirect()->route('dashboard')->with('Success','Idea deleted successfully!');
+    }
 }
