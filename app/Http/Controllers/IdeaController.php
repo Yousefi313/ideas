@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Idea;
-use Illuminate\Http\Request;
 
-class IdeaController extends Controller
-{
+class IdeaController extends Controller {
+
+
+    public function show(Idea $idea){
+        return view('ideas.show',compact('idea'));
+    }
+
     public function store()
     {
 
@@ -28,9 +32,10 @@ class IdeaController extends Controller
         return redirect()->route('dashboard')->with('Success','Idea created successfully!');
     }
 
-    public function destroy($id){
+    public function destroy(Idea $idea){
 
-        Idea::where('id',$id)->firstOrFail()->delete();
+        $idea->delete(); //Using Route Model Binding makes your code more readable and concise
+        // Idea::where('id',$id)->firstOrFail()->delete();
 
         // The above code is the same but more clean and concise
         //by default where methode compares the two ids by equal

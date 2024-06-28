@@ -10,6 +10,8 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 //When such a request is made, Laravel will instantiate the DashboardController class and call its index method.
 Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
 
+Route::get('/ideas{idea}', [IdeaController::class, 'show'])->name('ideas.show');
+
 Route::delete('/ideas/{id}', [IdeaController::class, 'destroy'])->name('ideas.destroy');
 
 
