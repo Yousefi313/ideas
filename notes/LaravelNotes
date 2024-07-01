@@ -104,4 +104,7 @@ php artisan make:model Comment -m -c
 
 m stands for migration and c stands for controller.
 
+$fillable and $guarded are the same with some differences. Google about $validated too.
+    e.g.  Idea::create($validate);
 
+I should start from #20 Registration code.
