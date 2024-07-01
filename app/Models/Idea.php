@@ -13,4 +13,8 @@ class Idea extends Model
         'content',
         'like'
     ];
+
+    public function comments(){ //This is how to define the relationship in Laravel
+        return $this->hasMany(Comment::class);
+    }
 }

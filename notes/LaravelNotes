@@ -95,5 +95,13 @@ Route::post('/idea', [DashboardController::class, 'index'])->name('idea.create')
 The name of above route is idea.create
 
 
+In order to make a model you type
+php artisan make:model Comment
 
-I should start from #16 Flash Messages.
+You can create migration and controller with the same command line.
+There is another option of creating them all together by typing:
+php artisan make:model Comment -m -c
+
+m stands for migration and c stands for controller.
+
+
