@@ -3,14 +3,13 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-md-6">
-            <form class="form mt-5" action="{{ route('register.store')}}" method="POST">
-                @csrf
+            <form class="form mt-5" action="" method="post">
                 <h3 class="text-center text-dark">Register</h3>
                 <div class="form-group">
                     <label for="name" class="text-dark">Name:</label><br>
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group">
                     <label for="email" class="text-dark">Email:</label><br>
                     <input type="email" name="email" id="email" class="form-control">
                 </div>
