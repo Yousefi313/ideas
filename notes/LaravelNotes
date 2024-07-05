@@ -110,3 +110,23 @@ $fillable and $guarded are the same with some differences. Google about $validat
 I should start from #20 Registration code.
 I'm still in #20. I did everything but at the end
 it gives me an error route[register] not defined..
+
+
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            @endguest
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">{{ Auth::user()->name }}</a>
+                </li>
+            @endauth
+
+
+            This is a part of the dashboard page.
+            If you're as a guest in the page(if you're not logged in) the the login and register buttons appear
+            And if you're logged logged in your name will appear there instead of login and register buttons.
