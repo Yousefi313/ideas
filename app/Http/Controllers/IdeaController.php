@@ -13,23 +13,31 @@ class IdeaController extends Controller {
 
     public function edit(Idea $idea){
 
+        if(auth()->id() !== $idea->ueser_id){
+            abort(404);
+        }
+
         $editing = true;
 
         return view('ideas.show',compact('idea','editing'));
     }
 
-    public function store()
-    {
+    public function store(){
 
-        request()->validate([
+        $validated = request()->validate([
             'content' => 'required|min:5|max:255'
         ]);
 
-        $idea = Idea::create(
-            [
-                'content' => request()->get('content', ''),
-            ]
-        );
+        $validated['user_id'] = auth()->user()->id; //to get the user id for authorization process
+
+
+        Idea::create($validated);
+
+        // $idea = Idea::create(
+        //     [
+        //         'content' => request()->get('content', ''),
+        //     ]
+        // );
         //The above code is the same as below but more concise
         // $idea = new Idea([
         //     'content' => request()->get('idea', ''),
@@ -40,6 +48,10 @@ class IdeaController extends Controller {
     }
 
     public function destroy(Idea $idea){
+
+        if(auth()->id() !== $idea->ueser_id){ //This method enables only the owner of the post to delete or edit the post
+            abort(404);
+        }
 
         $idea->delete(); //Using Route Model Binding makes your code more readable and concise
         // Idea::where('id',$id)->firstOrFail()->delete();
@@ -54,6 +66,10 @@ class IdeaController extends Controller {
     }
 
     public function update(Idea $idea){
+
+        if(auth()->id() !== $idea->ueser_id){
+            abort(404);
+        }
 
         request()->validate([
             'content' => 'required|min:5|max:255'
