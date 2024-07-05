@@ -109,4 +109,4 @@ $fillable and $guarded are the same with some differences. Google about $validat
 
 I should start from #20 Registration code.
 I'm still in #20. I did everything but at the end
-it give me an error route[register] not defined..
+it gives me an error route[register] not defined..

@@ -24,8 +24,7 @@ Route::post('ideas/{idea}/comments', [CommentController::class, 'store'])->name(
 
 Route::get('/register', [AuthController::class , 'register'] )->name('register');
 
-// Route::post('/register', [AuthController::class , 'store'] );
-Route::post('/register', [AuthController::class, 'store'])->name('register.store');
+Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/terms', function () { //Direct Closure Route
     return view('terms');
@@ -34,10 +33,11 @@ Route::get('/terms', function () { //Direct Closure Route
 
 // Route::post('/idea', [DashboardController::class, 'index']);
 
-Route::get('/profile', [ProfileController::class, 'index']); //Controller Route
+// Route::get('/profile', [ProfileController::class, 'index']); //Controller Route
 
 
-Route::get('/register', [RegisterController::class, 'index']);
+// Route::get('/register', [RegisterController::class, 'index']);
+// Register Controller should be deleted as well.
 
 
 // Route::get('/', function () {
