@@ -10,27 +10,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 //When such a request is made, Laravel will instantiate the DashboardController class and call its index method.
-Route::post('/ideas', [IdeaController::class, 'store'])->name('ideas.store');
 
-Route::get('/ideas{idea}', [IdeaController::class, 'show'])->name('ideas.show');
+Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'],function(){
 
-Route::get('/ideas{idea}/edit', [IdeaController::class, 'edit'])->name('ideas.edit')->middleware('auth');
+    Route::post('', [IdeaController::class, 'store'])->name('store')->withoutMiddleware('auth');
 
-Route::put('/ideas{idea}', [IdeaController::class, 'update'])->name('ideas.update')->middleware('auth');
+    Route::get('/{idea}', [IdeaController::class, 'show'])->name('show')->withoutMiddleware('auth');
 
-Route::delete('/ideas/{idea}', [IdeaController::class, 'destroy'])->name('ideas.destroy')->middleware('auth');
+        Route::group(['middleware'=>['auth']],function(){
 
-Route::post('ideas/{idea}/comments', [CommentController::class, 'store'])->name('ideas.comments.store');
+            Route::get('/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
 
-Route::get('/register', [AuthController::class , 'register'] )->name('register');
+            Route::put('/{idea}', [IdeaController::class, 'update'])->name('update');
 
-Route::post('/register', [AuthController::class, 'store']);
+            Route::delete('/{idea}', [IdeaController::class, 'destroy'])->name('destroy');
 
-Route::get('/login', [AuthController::class , 'login'] )->name('login');
-
-Route::post('/login', [AuthController::class, 'authenticate']);
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+            Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
+        });
+});
 
 Route::get('/terms', function () { //Direct Closure Route
     return view('terms');
