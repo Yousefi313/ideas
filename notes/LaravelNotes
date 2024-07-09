@@ -137,3 +137,6 @@ php artisan migrate:refresh --step=2
 
 I will have the option of deletion and edition of my comment under someone else comment.
 I'm in #23 and I should completed but there is a problem, my laravel project doesn't have RouteServiceProvider.php by itself.
+
+Laravel 11 doesn't have RouteServiceProvider file. I completed the course till #24 Resource Routing. So I need to implement the
+resource routing to avoid boilerplate code.
