@@ -140,3 +140,8 @@ I'm in #23 and I should completed but there is a problem, my laravel project doe
 
 Laravel 11 doesn't have RouteServiceProvider file. I completed the course till #24 Resource Routing. So I need to implement the
 resource routing to avoid boilerplate code.
+
+
+12. With the help of route resource you can reduce the boiler plate code.
+e.g. Route::resource('ideas', IdeaController::class);
+The above line of code creates all the routes(update,delete,store,edit,show,store etc.) for IdeaController.

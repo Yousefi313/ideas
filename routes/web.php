@@ -8,8 +8,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-//When such a request is made, Laravel will instantiate the DashboardController class and call its index method.
+
+Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+// Route::resource('ideas',IdeaController::class);
+
+// Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
+
+// Route::resource('ideas', IdeaController::class)->only(['show']);
+
+// Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
 
 Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'],function(){
 
@@ -28,6 +35,8 @@ Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'],function(){
             Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
         });
 });
+
+
 
 Route::get('/register', [AuthController::class , 'register'] )->name('register');
 
