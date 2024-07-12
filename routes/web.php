@@ -12,29 +12,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('', [DashboardController::class, 'index'])->name('dashboard');
 // Route::resource('ideas',IdeaController::class);
 
-// Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
+Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
 
-// Route::resource('ideas', IdeaController::class)->only(['show']);
+Route::resource('ideas', IdeaController::class)->only(['show']);
 
-// Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
+Route::resource('ideas.comments', CommentController::class)->only(['store'])->middleware('auth');
 
-Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'],function(){
 
-    Route::post('', [IdeaController::class, 'store'])->name('store')->withoutMiddleware('auth');
+// Route::group(['prefix' => 'ideas/', 'as' => 'ideas.'],function(){
 
-    Route::get('/{idea}', [IdeaController::class, 'show'])->name('show')->withoutMiddleware('auth');
+//     Route::post('', [IdeaController::class, 'store'])->name('store')->withoutMiddleware('auth');
 
-        Route::group(['middleware'=>['auth']],function(){
+//     Route::get('/{idea}', [IdeaController::class, 'show'])->name('show')->withoutMiddleware('auth');
 
-            Route::get('/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
+//         Route::group(['middleware'=>['auth']],function(){
 
-            Route::put('/{idea}', [IdeaController::class, 'update'])->name('update');
+//             Route::get('/{idea}/edit', [IdeaController::class, 'edit'])->name('edit');
 
-            Route::delete('/{idea}', [IdeaController::class, 'destroy'])->name('destroy');
+//             Route::put('/{idea}', [IdeaController::class, 'update'])->name('update');
 
-            Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
-        });
-});
+//             Route::delete('/{idea}', [IdeaController::class, 'destroy'])->name('destroy');
+
+//             Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
+//         });
+// });
 
 
 

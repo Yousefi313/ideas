@@ -13,7 +13,7 @@ class IdeaController extends Controller {
 
     public function edit(Idea $idea){
 
-        if(auth()->id() !== $idea->ueser_id){
+        if(auth()->id() !== $idea->user_id){ //ueser_id
             abort(404);
         }
 
@@ -75,7 +75,7 @@ class IdeaController extends Controller {
             'content' => 'required|min:5|max:255'
         ]);
 
-        $idea->content = request()->get('content','');
+        // $idea->content = request()->get('content','');
         $idea->save();
 
         return redirect()->route('ideas.show',$idea->id)->with('success','Idea updated successfully!');
