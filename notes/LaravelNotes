@@ -145,3 +145,7 @@ resource routing to avoid boilerplate code.
 12. With the help of route resource you can reduce the boiler plate code.
 e.g. Route::resource('ideas', IdeaController::class);
 The above line of code creates all the routes(update,delete,store,edit,show,store etc.) for IdeaController.
+
+
+#27
+Time: 3:29
