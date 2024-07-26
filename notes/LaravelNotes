@@ -152,3 +152,5 @@ php artisan storage:link creates a link between public\storage to \storage\app/p
 
 #28 should be completed. I create the following migration php artisan make:migration create_follower_user_table --create
 but when I run the php artisan migrate the application gives me an error.
+
+Time 7:14 
