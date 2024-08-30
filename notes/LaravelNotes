@@ -151,3 +151,13 @@ The above line of code creates all the routes(update,delete,store,edit,show,stor
 php artisan storage:link creates a link between public\storage to \storage\app/public
 
 I learnd til #30
+
+The following line of code is a conditional statement.(If the main page is the dashboard i.e. the main page
+the Home link should be black otherwise it should be white)
+<a class="{{ (Route::is('dashboard')) ? 'text-white bg-primary rounded' : '' }} nav-link" href="{{ route('dashboard') }}">
+                    <span>Home</span></a>
+
+        If the current route matches 'dashboard' (determined by the Route::is method), it sets the class to 'text-white bg-primary rounded', which likely styles the link to have white text color, a primary background color, and rounded corners.
+        If the current route does not match 'dashboard', it sets the class to an empty string.
+        href="{{ route('dashboard') }}": This sets the hyperlink's href attribute dynamically using the route helper function, which generates the URL for the named route 'dashboard'.
+<span>Home</span>: This part contains the text "Home" that will be displayed as the content of the hyperlink.
