@@ -6,28 +6,13 @@
                     <span>Home</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Explore</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Feed</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/terms">
+                <a class="{{ (Route::is('terms')) ? 'text-white bg-primary rounded' : '' }} nav-link" href="{{ route('terms') }}">
                     <span>Terms</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Support</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Settings</span></a>
-            </li>
+
         </ul>
     </div>
     <div class="card-footer text-center py-2">
-        <a class="btn btn-link btn-sm" href="#">View Profile </a>
+        <a class="btn btn-link btn-sm" href="{{ route('profile') }}">View Profile </a>
     </div>
 </div>

@@ -161,3 +161,11 @@ the Home link should be black otherwise it should be white)
         If the current route does not match 'dashboard', it sets the class to an empty string.
         href="{{ route('dashboard') }}": This sets the hyperlink's href attribute dynamically using the route helper function, which generates the URL for the named route 'dashboard'.
 <span>Home</span>: This part contains the text "Home" that will be displayed as the content of the hyperlink.
+
+* The above process called active menu.
+
+
+The following line should be added: Nice this even works well with a dark mode I added so my eyes wouldn't burn to death at night. Done by adding data-bs-theme="dark" to the html <>
+
+
+*Important: There is a problem by updating the profile picture.

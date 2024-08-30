@@ -60,7 +60,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/terms', function () { //Direct Closure Route
     return view('terms');
-});
+})->name('terms');
 
 
 // Route::post('/idea', [DashboardController::class, 'index']);
