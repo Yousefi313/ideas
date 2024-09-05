@@ -14,7 +14,7 @@ class Idea extends Model
     protected $fillable = [
         'user_id',
         'content',
-        'like'
+        'likes'
     ];
 
     public function comments(){ //This is how to define the relationship in Laravel
@@ -23,5 +23,9 @@ class Idea extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function likes(){
+        return $this->belongsToMany(User::class,'idea_like')->withTimestamps();
     }
 }
