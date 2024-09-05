@@ -11,7 +11,7 @@
 
     <hr>
 
-    @foreach ($idea->comments as $comment)
+    @forelse ($idea->comments as $comment)
     <div class="d-flex align-items-start">
         <img style="width:35px" class="me-2 avatar-sm rounded-circle"
             src="{{ $comment->user->getImageURL() }}"
@@ -27,5 +27,7 @@
         </div>
     </div>
 
-    @endforeach
+    @empty
+    <p class="text-center mt-4">No Comments found &#128533;</p>
+    @endforelse
 </div>

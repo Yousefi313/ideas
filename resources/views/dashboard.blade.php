@@ -13,7 +13,7 @@
                         @include('ideas.shared.idea-card')
                     </div>
                 @empty
-                    <p class="text-center mt-4">No results found &#128533;</p>
+                    <p class="text-center mt-4">No Results found &#128533;</p>
                 @endforelse
                 {{-- <div class="mt-3">
                     @include('shared.idea-card')
