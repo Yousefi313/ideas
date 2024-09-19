@@ -24,7 +24,7 @@
                     {{ $user->bio }}
                 </p>
 
-                @include('users.shared.user-stats')
+                @include('users.shared.usbraveer-stats')
 
             @auth
                 @if (Auth::id()!==$user->id)
